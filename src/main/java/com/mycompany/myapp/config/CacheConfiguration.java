@@ -48,6 +48,20 @@ public class CacheConfiguration {
             createCache(cm, com.mycompany.myapp.domain.User.class.getName());
             createCache(cm, com.mycompany.myapp.domain.Authority.class.getName());
             createCache(cm, com.mycompany.myapp.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.mycompany.myapp.domain.KanbanTable.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.KanbanTable.class.getName() + ".tables");
+            createCache(cm, com.mycompany.myapp.domain.KanbanColumn.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.KanbanColumn.class.getName() + ".columns");
+            createCache(cm, com.mycompany.myapp.domain.TaskCard.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.TaskCard.class.getName() + ".types");
+            createCache(cm, com.mycompany.myapp.domain.TaskCard.class.getName() + ".images");
+            createCache(cm, com.mycompany.myapp.domain.TaskCard.class.getName() + ".files");
+            createCache(cm, com.mycompany.myapp.domain.TaskCard.class.getName() + ".comments");
+            createCache(cm, com.mycompany.myapp.domain.TaskCardType.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.TaskCardImage.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.TaskCardFile.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Comment.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.History.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

@@ -1,0 +1,25 @@
+{
+  "simpleKanbanApp": {
+    "taskCardFile": {
+      "home": {
+        "title": "TaskCardFiles",
+        "createLabel": "Créer un nouveau Task Card File",
+        "createOrEditLabel": "Créer ou éditer un Task Card File",
+        "notFound": "Aucun Task Card File trouvé"
+      },
+      "created": "Un nouveau Task Card File a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Task Card File avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Task Card File avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Task Card File {{ id }} ?"
+      },
+      "detail": {
+        "title": "Task Card File"
+      },
+      "data": "Data",
+      "creationDate": "Creation Date",
+      "modificationDate": "Modification Date",
+      "taskCard": "Task Card"
+    }
+  }
+}

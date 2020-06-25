@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="kanbanColumn">
+            <h2><span jhiTranslate="simpleKanbanApp.kanbanColumn.detail.title">Kanban Column</span> {{ kanbanColumn.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="simpleKanbanApp.kanbanColumn.name">Name</span></dt>
+                <dd>
+                    <span>{{ kanbanColumn.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="simpleKanbanApp.kanbanColumn.creationDate">Creation Date</span></dt>
+                <dd>
+                    <span>{{ kanbanColumn.creationDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="simpleKanbanApp.kanbanColumn.modificationDate">Modification Date</span></dt>
+                <dd>
+                    <span>{{ kanbanColumn.modificationDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="simpleKanbanApp.kanbanColumn.kanbanTable">Kanban Table</span></dt>
+                <dd>
+                    <div *ngIf="kanbanColumn.kanbanTableId">
+                        <a [routerLink]="['/kanban-table', kanbanColumn.kanbanTableId, 'view']">{{ kanbanColumn.kanbanTableId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/kanban-column', kanbanColumn.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

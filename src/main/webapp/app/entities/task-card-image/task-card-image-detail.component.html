@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="taskCardImage">
+            <h2><span jhiTranslate="simpleKanbanApp.taskCardImage.detail.title">Task Card Image</span> {{ taskCardImage.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="simpleKanbanApp.taskCardImage.data">Data</span></dt>
+                <dd>
+                    <div *ngIf="taskCardImage.data">
+                        <a (click)="openFile(taskCardImage.dataContentType, taskCardImage.data)">
+                            <img [src]="'data:' + taskCardImage.dataContentType + ';base64,' + taskCardImage.data" style="max-width: 100%;" alt="taskCardImage image"/>
+                        </a>
+                        {{ taskCardImage.dataContentType }}, {{ byteSize(taskCardImage.data) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="simpleKanbanApp.taskCardImage.creationDate">Creation Date</span></dt>
+                <dd>
+                    <span>{{ taskCardImage.creationDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="simpleKanbanApp.taskCardImage.modificationDate">Modification Date</span></dt>
+                <dd>
+                    <span>{{ taskCardImage.modificationDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="simpleKanbanApp.taskCardImage.taskCard">Task Card</span></dt>
+                <dd>
+                    <div *ngIf="taskCardImage.taskCardId">
+                        <a [routerLink]="['/task-card', taskCardImage.taskCardId, 'view']">{{ taskCardImage.taskCardId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/task-card-image', taskCardImage.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

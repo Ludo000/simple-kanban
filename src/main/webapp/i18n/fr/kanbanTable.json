@@ -1,0 +1,27 @@
+{
+  "simpleKanbanApp": {
+    "kanbanTable": {
+      "home": {
+        "title": "KanbanTables",
+        "createLabel": "Créer un nouveau Kanban Table",
+        "createOrEditLabel": "Créer ou éditer un Kanban Table",
+        "notFound": "Aucun Kanban Table trouvé"
+      },
+      "created": "Un nouveau Kanban Table a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Kanban Table avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Kanban Table avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Kanban Table {{ id }} ?"
+      },
+      "detail": {
+        "title": "Kanban Table"
+      },
+      "name": "Name",
+      "description": "Description",
+      "creationDate": "Creation Date",
+      "modificationDate": "Modification Date",
+      "tables": "Tables",
+      "user": "User"
+    }
+  }
+}

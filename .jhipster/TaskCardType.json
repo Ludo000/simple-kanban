@@ -1,0 +1,30 @@
+{
+  "name": "TaskCardType",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "taskCard",
+      "otherEntityRelationshipName": "types",
+      "relationshipName": "taskCard",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200625100155",
+  "entityTableName": "task_card_type",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

@@ -1,0 +1,36 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="taskCardType">
+            <h2><span jhiTranslate="simpleKanbanApp.taskCardType.detail.title">Task Card Type</span> {{ taskCardType.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="simpleKanbanApp.taskCardType.name">Name</span></dt>
+                <dd>
+                    <span>{{ taskCardType.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="simpleKanbanApp.taskCardType.taskCard">Task Card</span></dt>
+                <dd>
+                    <div *ngIf="taskCardType.taskCardId">
+                        <a [routerLink]="['/task-card', taskCardType.taskCardId, 'view']">{{ taskCardType.taskCardId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/task-card-type', taskCardType.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -14,7 +14,22 @@
     <property name="uuidType" value="varchar(36)" dbms="h2, mysql, mariadb"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200625095855_added_entity_KanbanTable.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200625095955_added_entity_KanbanColumn.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200625100055_added_entity_TaskCard.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200625100155_added_entity_TaskCardType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200625100255_added_entity_TaskCardImage.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200625100355_added_entity_TaskCardFile.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200625100455_added_entity_Comment.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200625100555_added_entity_History.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20200625095855_added_entity_constraints_KanbanTable.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200625095955_added_entity_constraints_KanbanColumn.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200625100055_added_entity_constraints_TaskCard.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200625100155_added_entity_constraints_TaskCardType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200625100255_added_entity_constraints_TaskCardImage.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200625100355_added_entity_constraints_TaskCardFile.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200625100455_added_entity_constraints_Comment.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

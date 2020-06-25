@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity TaskCardImage.
+    -->
+    <changeSet id="20200625100255-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="task_card_id"
+                                 baseTableName="task_card_image"
+                                 constraintName="fk_task_card_image_task_card_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="task_card"/>
+
+    </changeSet>
+</databaseChangeLog>

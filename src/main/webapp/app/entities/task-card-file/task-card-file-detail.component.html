@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="taskCardFile">
+            <h2><span jhiTranslate="simpleKanbanApp.taskCardFile.detail.title">Task Card File</span> {{ taskCardFile.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="simpleKanbanApp.taskCardFile.data">Data</span></dt>
+                <dd>
+                    <div *ngIf="taskCardFile.data">
+                        <a (click)="openFile(taskCardFile.dataContentType, taskCardFile.data)" jhiTranslate="entity.action.open">open</a>
+                        {{ taskCardFile.dataContentType }}, {{ byteSize(taskCardFile.data) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="simpleKanbanApp.taskCardFile.creationDate">Creation Date</span></dt>
+                <dd>
+                    <span>{{ taskCardFile.creationDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="simpleKanbanApp.taskCardFile.modificationDate">Modification Date</span></dt>
+                <dd>
+                    <span>{{ taskCardFile.modificationDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="simpleKanbanApp.taskCardFile.taskCard">Task Card</span></dt>
+                <dd>
+                    <div *ngIf="taskCardFile.taskCardId">
+                        <a [routerLink]="['/task-card', taskCardFile.taskCardId, 'view']">{{ taskCardFile.taskCardId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/task-card-file', taskCardFile.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

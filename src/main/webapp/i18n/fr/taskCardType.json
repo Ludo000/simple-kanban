@@ -1,0 +1,23 @@
+{
+  "simpleKanbanApp": {
+    "taskCardType": {
+      "home": {
+        "title": "TaskCardTypes",
+        "createLabel": "Créer un nouveau Task Card Type",
+        "createOrEditLabel": "Créer ou éditer un Task Card Type",
+        "notFound": "Aucun Task Card Type trouvé"
+      },
+      "created": "Un nouveau Task Card Type a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Task Card Type avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Task Card Type avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Task Card Type {{ id }} ?"
+      },
+      "detail": {
+        "title": "Task Card Type"
+      },
+      "name": "Name",
+      "taskCard": "Task Card"
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "name": "KanbanColumn",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "creationDate",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "modificationDate",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "taskCard",
+      "otherEntityRelationshipName": "kanbanColumn",
+      "relationshipName": "columns"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "kanbanTable",
+      "otherEntityRelationshipName": "tables",
+      "relationshipName": "kanbanTable",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200625095955",
+  "entityTableName": "kanban_column",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

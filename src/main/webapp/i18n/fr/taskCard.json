@@ -1,0 +1,32 @@
+{
+  "simpleKanbanApp": {
+    "taskCard": {
+      "home": {
+        "title": "TaskCards",
+        "createLabel": "Créer un nouveau Task Card",
+        "createOrEditLabel": "Créer ou éditer un Task Card",
+        "notFound": "Aucun Task Card trouvé"
+      },
+      "created": "Un nouveau Task Card a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Task Card avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Task Card avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Task Card {{ id }} ?"
+      },
+      "detail": {
+        "title": "Task Card"
+      },
+      "name": "Name",
+      "description": "Description",
+      "colorHexCode": "Color Hex Code",
+      "creationDate": "Creation Date",
+      "modificationDate": "Modification Date",
+      "limitDate": "Limit Date",
+      "types": "Types",
+      "images": "Images",
+      "files": "Files",
+      "comments": "Comments",
+      "kanbanColumn": "Kanban Column"
+    }
+  }
+}

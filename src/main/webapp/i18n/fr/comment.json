@@ -1,0 +1,25 @@
+{
+  "simpleKanbanApp": {
+    "comment": {
+      "home": {
+        "title": "Comments",
+        "createLabel": "Créer un nouveau Comment",
+        "createOrEditLabel": "Créer ou éditer un Comment",
+        "notFound": "Aucun Comment trouvé"
+      },
+      "created": "Un nouveau Comment a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Comment avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Comment avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Comment {{ id }} ?"
+      },
+      "detail": {
+        "title": "Comment"
+      },
+      "content": "Content",
+      "creationDate": "Creation Date",
+      "modificationDate": "Modification Date",
+      "taskCard": "Task Card"
+    }
+  }
+}

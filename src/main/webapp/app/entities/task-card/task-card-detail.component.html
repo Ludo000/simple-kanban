@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="taskCard">
+            <h2><span jhiTranslate="simpleKanbanApp.taskCard.detail.title">Task Card</span> {{ taskCard.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="simpleKanbanApp.taskCard.name">Name</span></dt>
+                <dd>
+                    <span>{{ taskCard.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="simpleKanbanApp.taskCard.description">Description</span></dt>
+                <dd>
+                    <span>{{ taskCard.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="simpleKanbanApp.taskCard.colorHexCode">Color Hex Code</span></dt>
+                <dd>
+                    <span>{{ taskCard.colorHexCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="simpleKanbanApp.taskCard.creationDate">Creation Date</span></dt>
+                <dd>
+                    <span>{{ taskCard.creationDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="simpleKanbanApp.taskCard.modificationDate">Modification Date</span></dt>
+                <dd>
+                    <span>{{ taskCard.modificationDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="simpleKanbanApp.taskCard.limitDate">Limit Date</span></dt>
+                <dd>
+                    <span>{{ taskCard.limitDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="simpleKanbanApp.taskCard.kanbanColumn">Kanban Column</span></dt>
+                <dd>
+                    <div *ngIf="taskCard.kanbanColumnId">
+                        <a [routerLink]="['/kanban-column', taskCard.kanbanColumnId, 'view']">{{ taskCard.kanbanColumnId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/task-card', taskCard.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

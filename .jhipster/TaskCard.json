@@ -1,0 +1,75 @@
+{
+  "name": "TaskCard",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "colorHexCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "creationDate",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "modificationDate",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "limitDate",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "taskCardType",
+      "otherEntityRelationshipName": "taskCard",
+      "relationshipName": "types"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "taskCardImage",
+      "otherEntityRelationshipName": "taskCard",
+      "relationshipName": "images"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "taskCardFile",
+      "otherEntityRelationshipName": "taskCard",
+      "relationshipName": "files"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "comment",
+      "otherEntityRelationshipName": "taskCard",
+      "relationshipName": "comments"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "kanbanColumn",
+      "otherEntityRelationshipName": "columns",
+      "relationshipName": "kanbanColumn",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200625100055",
+  "entityTableName": "task_card",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

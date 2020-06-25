@@ -1,0 +1,26 @@
+{
+  "simpleKanbanApp": {
+    "kanbanColumn": {
+      "home": {
+        "title": "KanbanColumns",
+        "createLabel": "Créer un nouveau Kanban Column",
+        "createOrEditLabel": "Créer ou éditer un Kanban Column",
+        "notFound": "Aucun Kanban Column trouvé"
+      },
+      "created": "Un nouveau Kanban Column a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Kanban Column avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Kanban Column avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Kanban Column {{ id }} ?"
+      },
+      "detail": {
+        "title": "Kanban Column"
+      },
+      "name": "Name",
+      "creationDate": "Creation Date",
+      "modificationDate": "Modification Date",
+      "columns": "Columns",
+      "kanbanTable": "Kanban Table"
+    }
+  }
+}

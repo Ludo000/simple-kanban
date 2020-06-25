@@ -1,0 +1,25 @@
+{
+  "simpleKanbanApp": {
+    "taskCardImage": {
+      "home": {
+        "title": "TaskCardImages",
+        "createLabel": "Créer un nouveau Task Card Image",
+        "createOrEditLabel": "Créer ou éditer un Task Card Image",
+        "notFound": "Aucun Task Card Image trouvé"
+      },
+      "created": "Un nouveau Task Card Image a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Task Card Image avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Task Card Image avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Task Card Image {{ id }} ?"
+      },
+      "detail": {
+        "title": "Task Card Image"
+      },
+      "data": "Data",
+      "creationDate": "Creation Date",
+      "modificationDate": "Modification Date",
+      "taskCard": "Task Card"
+    }
+  }
+}
