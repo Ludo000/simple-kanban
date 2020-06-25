@@ -12,7 +12,7 @@ import java.util.List;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface KanbanTableRepository extends JpaRepository<KanbanTable, Long> {
+public interface KanbanTableRepository extends JpaRepository<KanbanTable, Long>, JpaSpecificationExecutor<KanbanTable> {
 
     @Query("select kanbanTable from KanbanTable kanbanTable where kanbanTable.user.login = ?#{principal.username}")
     List<KanbanTable> findByUserIsCurrentUser();

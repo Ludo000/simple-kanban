@@ -9,10 +9,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -59,6 +61,23 @@ public class KanbanTableServiceImpl implements KanbanTableService {
         log.debug("Request to get all KanbanTables");
         return kanbanTableRepository.findAll(pageable)
             .map(kanbanTableMapper::toDto);
+    }
+
+    /**
+     * Get all the kanbanTables.
+     *
+     * @param pageable the pagination information.
+     * @return the list of entities.
+     */
+    @Override
+    @Transactional(readOnly = true)
+    public Page<KanbanTableDTO> findByUserIsCurrentUser(Pageable pageable) {
+        log.debug("Request to get all KanbanTables");
+        List<KanbanTable> kanbanTableList = kanbanTableRepository.findByUserIsCurrentUser();
+        int start = Math.toIntExact(pageable.getOffset());
+        int end = (start + pageable.getPageSize()) > kanbanTableList.size() ? kanbanTableList.size() : (start + pageable.getPageSize());
+        Page<KanbanTable> pages = new PageImpl<KanbanTable>(kanbanTableList.subList(start, end), pageable, kanbanTableList.size());
+        return pages.map(kanbanTableMapper::toDto);
     }
 
 

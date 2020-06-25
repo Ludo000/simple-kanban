@@ -1,0 +1,99 @@
+application {
+  config {
+    applicationType monolith
+    authenticationType jwt
+    baseName SimpleKanban
+    blueprints []
+    buildTool maven
+    cacheProvider ehcache
+    clientFramework angularX
+    clientPackageManager npm
+    clientTheme none
+    creationTimestamp 1593078262801
+    databaseType sql
+    devDatabaseType h2Disk
+    dtoSuffix DTO
+    embeddableLaunchScript false
+    enableHibernateCache true
+    enableSwaggerCodegen false
+    enableTranslation true
+    jhiPrefix jhi
+    jhipsterVersion "6.9.1"
+    jwtSecretKey "MjY4ZmMzZmIzZjQxMjlkNjZjNjViZWNmZmRlM2E5NmI1MmRkMTcwMDRmNjBkN2M3OWY5YTlhYjAyZTExMTczMDE5NjYyNWZlYTVlNGE0MjY3YzU0YTM0NGJlZjE3NDk4MmE0ZDM1NWQ1MTc4MDJjMmI4NGE5ODZiMTJkZmY2N2Q="
+    languages [fr]
+    messageBroker false
+    nativeLanguage fr
+    otherModules []
+    packageName com.mycompany.myapp
+    prodDatabaseType mysql
+    searchEngine false
+    serverPort 8080
+    serviceDiscoveryType false
+    skipClient false
+    skipServer false
+    skipUserManagement false
+    testFrameworks []
+    useSass true
+    websocket false
+  }
+
+  entities Comment, History, KanbanColumn, KanbanTable, TaskCard, TaskCardFile, TaskCardImage, TaskCardType
+}
+
+entity Comment {
+  content String required,
+  creationDate Instant required,
+  modificationDate Instant required
+}
+entity History {
+  entry String required,
+  entryDate Instant required
+}
+entity KanbanColumn {
+  name String,
+  creationDate Instant required,
+  modificationDate Instant required
+}
+entity KanbanTable {
+  name String,
+  description String,
+  creationDate Instant required,
+  modificationDate Instant required
+}
+entity TaskCard {
+  name String,
+  description String,
+  colorHexCode String,
+  creationDate Instant required,
+  modificationDate Instant required,
+  limitDate Instant
+}
+entity TaskCardFile {
+  data AnyBlob required,
+  creationDate Instant required,
+  modificationDate Instant required
+}
+entity TaskCardImage {
+  data ImageBlob required,
+  creationDate Instant required,
+  modificationDate Instant required
+}
+entity TaskCardType {
+  name String required
+}
+relationship OneToMany {
+  TaskCard{comments} to Comment{taskCard},
+  KanbanTable{tables} to KanbanColumn{kanbanTable},
+  KanbanColumn{columns} to TaskCard{kanbanColumn},
+  TaskCard{files} to TaskCardFile{taskCard},
+  TaskCard{images} to TaskCardImage{taskCard},
+  TaskCard{types} to TaskCardType{taskCard}
+}
+relationship ManyToOne {
+  KanbanTable{user} to User
+}
+
+dto Comment, History, KanbanColumn, KanbanTable, TaskCard, TaskCardFile, TaskCardImage, TaskCardType with mapstruct
+paginate Comment, History, KanbanColumn, KanbanTable, TaskCard, TaskCardFile, TaskCardImage, TaskCardType with pagination
+service Comment, History, KanbanColumn, KanbanTable, TaskCard, TaskCardFile, TaskCardImage, TaskCardType with serviceImpl
+filter KanbanTable

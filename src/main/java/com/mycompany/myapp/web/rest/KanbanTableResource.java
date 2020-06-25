@@ -3,6 +3,8 @@ package com.mycompany.myapp.web.rest;
 import com.mycompany.myapp.service.KanbanTableService;
 import com.mycompany.myapp.web.rest.errors.BadRequestAlertException;
 import com.mycompany.myapp.service.dto.KanbanTableDTO;
+import com.mycompany.myapp.service.dto.KanbanTableCriteria;
+import com.mycompany.myapp.service.KanbanTableQueryService;
 
 import io.github.jhipster.web.util.HeaderUtil;
 import io.github.jhipster.web.util.PaginationUtil;
@@ -40,8 +42,11 @@ public class KanbanTableResource {
 
     private final KanbanTableService kanbanTableService;
 
-    public KanbanTableResource(KanbanTableService kanbanTableService) {
+    private final KanbanTableQueryService kanbanTableQueryService;
+
+    public KanbanTableResource(KanbanTableService kanbanTableService, KanbanTableQueryService kanbanTableQueryService) {
         this.kanbanTableService = kanbanTableService;
+        this.kanbanTableQueryService = kanbanTableQueryService;
     }
 
     /**
@@ -88,14 +93,42 @@ public class KanbanTableResource {
      * {@code GET  /kanban-tables} : get all the kanbanTables.
      *
      * @param pageable the pagination information.
+     * @param criteria the criteria which the requested entities should match.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of kanbanTables in body.
      */
     @GetMapping("/kanban-tables")
-    public ResponseEntity<List<KanbanTableDTO>> getAllKanbanTables(Pageable pageable) {
-        log.debug("REST request to get a page of KanbanTables");
-        Page<KanbanTableDTO> page = kanbanTableService.findAll(pageable);
+    public ResponseEntity<List<KanbanTableDTO>> getAllKanbanTables(KanbanTableCriteria criteria, Pageable pageable) {
+        log.debug("REST request to get KanbanTables by criteria: {}", criteria);
+        Page<KanbanTableDTO> page = kanbanTableQueryService.findByCriteria(criteria, pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+    /**
+     * {@code GET  /kanban-tables} : get all the kanbanTables.
+     *
+     * @param pageable the pagination information.
+     * @param criteria the criteria which the requested entities should match.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of kanbanTables in body.
+     */
+    @GetMapping("/kanban-tables-by-user-is-current-user")
+    public ResponseEntity<List<KanbanTableDTO>> getAllKanbanTablesByUserIsCurrentUser(KanbanTableCriteria criteria, Pageable pageable) {
+        log.debug("REST request to get KanbanTables by criteria: {}", criteria);
+        Page<KanbanTableDTO> page = kanbanTableQueryService.findByUserIsCurrentUserByCriteria(criteria, pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+    /**
+     * {@code GET  /kanban-tables/count} : count all the kanbanTables.
+     *
+     * @param criteria the criteria which the requested entities should match.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the count in body.
+     */
+    @GetMapping("/kanban-tables/count")
+    public ResponseEntity<Long> countKanbanTables(KanbanTableCriteria criteria) {
+        log.debug("REST request to count KanbanTables by criteria: {}", criteria);
+        return ResponseEntity.ok().body(kanbanTableQueryService.countByCriteria(criteria));
     }
 
     /**
