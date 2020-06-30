@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   account: Account | null = null;
   authSubscription?: Subscription;
   tables: KanbanTable[] | null = [];
+  isInputCardShowed = false;
 
   constructor(
     private accountService: AccountService,
@@ -42,5 +43,9 @@ export class HomeComponent implements OnInit, OnDestroy {
     if (this.authSubscription) {
       this.authSubscription.unsubscribe();
     }
+  }
+
+  clickOnCreateBtn(): void {
+    this.isInputCardShowed = true;
   }
 }

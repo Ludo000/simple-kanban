@@ -1,5 +1,32 @@
 <div class="row">
-    <div class="col-md-12">
-       <div *ngFor="let table of tables">{{ table?.name }}</div>
-    </div>
+    <div class="col-12">
+        <div class="d-flex justify-content-start">
+            <div class="card" *ngFor="let table of tables" >
+                <div class="card-header d-flex justify-content-center align-items-center">
+                    {{ table?.name }}
+                </div>
+                <div class="card-body d-flex justify-content-center align-items-center">
+                    {{ table?.description }}
+                </div>
+            </div>
+            <ng-container [ngSwitch]="isInputCardShowed">
+                <div class="card" *ngSwitchCase="true">
+                    <div class="card-header d-flex justify-content-center align-items-center">
+                        <input type="text">
+                    </div>
+                    <div class="card-body d-flex justify-content-center align-items-center">
+                        <textarea name="desc" id="desc" cols="30" rows="10"></textarea>
+                    </div>
+                    <button type="button" class="btn btn-primary">Continue</button>
+                    <button type="button" class="btn btn-secondary">Cancel</button>
+                </div>
+                <button type="button" class="card" *ngSwitchDefault (click)="clickOnCreateBtn()">
+                    <div class="card-body d-flex justify-content-center align-items-center">
+                        <fa-icon icon="plus"></fa-icon>
+                        <div class="fa-label">Create a new table</div>
+                    </div>
+                </button>
+            </ng-container>
+        </div>
+    </div>  
 </div>
