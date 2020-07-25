@@ -107,4 +107,10 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.loadAll();
     this.isInputCardShowed = false;
   }
+
+  delete(kanbanTable: KanbanTable): void {
+    if (kanbanTable && kanbanTable.id) {
+      this.subscribeToSaveResponse(this.kanbanTableService.delete(kanbanTable.id));
+    }
+  }
 }
