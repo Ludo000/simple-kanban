@@ -1,9 +1,25 @@
 .card {
   margin: 10px;
-  height: 200px;
+  height: 350px;
   width: 350px;
 }
 
 .fa-label {
   margin-left: 5px;
+}
+
+.btn-group {
+  margin: 15px;
+}
+
+.btn-primary {
+  margin-right: 15px;
+}
+
+.btn-secondary {
+  margin-left: 15px;
+}
+
+textarea {
+  display: unset;
 }

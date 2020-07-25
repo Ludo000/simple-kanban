@@ -8,6 +8,7 @@ import { KanbanTable, IKanbanTable } from 'app/shared/model/kanban-table.model';
 import { KanbanTableService } from 'app/entities/kanban-table/kanban-table.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { HttpResponse } from '@angular/common/http';
+import * as moment from 'moment';
 
 @Component({
   selector: 'jhi-home',
@@ -20,10 +21,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   tables: KanbanTable[] | null = [];
   isInputCardShowed = false;
   isSaving = false;
+  userIsConnected = false;
 
   editForm = this.fb.group({
-    title: [null, [Validators.required]],
-    desc: [null],
+    name: [null, [Validators.required]],
+    description: [null],
   });
 
   constructor(
@@ -34,9 +36,14 @@ export class HomeComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
+    this.loadAll();
+  }
+
+  loadAll(): void {
     this.authSubscription = this.accountService.getAuthenticationState().subscribe(account => {
       this.account = account;
       if (account) {
+        this.userIsConnected = true;
         this.kanbanTableService.queryByUserIsCurrentUser().subscribe(data => (this.tables = data.body));
       }
     });
@@ -73,8 +80,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   private createFromForm(): IKanbanTable {
     return {
       ...new KanbanTable(),
-      id: this.editForm.get(['name'])!.value,
+      name: this.editForm.get(['name'])!.value,
       description: this.editForm.get(['description'])!.value,
+      creationDate: moment(),
+      modificationDate: moment(),
     };
   }
 
@@ -95,6 +104,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   previousState(): void {
+    this.loadAll();
     this.isInputCardShowed = false;
   }
 }
