@@ -36,17 +36,17 @@ export class HomeComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.loadAll();
+    this.authSubscription = this.accountService.getAuthenticationState().subscribe(account => {
+      this.account = account;
+      this.loadAll();
+    });
   }
 
   loadAll(): void {
-    this.authSubscription = this.accountService.getAuthenticationState().subscribe(account => {
-      this.account = account;
-      if (account) {
-        this.userIsConnected = true;
-        this.kanbanTableService.queryByUserIsCurrentUser().subscribe(data => (this.tables = data.body));
-      }
-    });
+    if (this.account) {
+      this.userIsConnected = true;
+      this.kanbanTableService.queryByUserIsCurrentUser().subscribe(data => (this.tables = data.body));
+    }
   }
 
   isAuthenticated(): boolean {
