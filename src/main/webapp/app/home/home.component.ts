@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   editForm = this.fb.group({
     name: [null, [Validators.required]],
-    description: [null],
+    description: [null, [Validators.maxLength(255)]],
   });
 
   constructor(
@@ -106,6 +106,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   previousState(): void {
     this.loadAll();
     this.isInputCardShowed = false;
+    this.editForm.reset();
   }
 
   delete(kanbanTable: KanbanTable): void {

@@ -1,7 +1,21 @@
+.big-container {
+  overflow-y: auto;
+  flex-wrap: wrap;
+  height: 70vh;
+}
+
 .card {
   margin: 10px;
   height: 350px;
+  max-height: 350px;
   width: 350px;
+  max-width: 350px;
+}
+
+.card-body {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  overflow: auto;
 }
 
 .fa-label {
@@ -12,11 +26,11 @@
   margin: 15px;
 }
 
-.btn-primary {
+.btn-secondary {
   margin-right: 15px;
 }
 
-.btn-secondary {
+.btn-primary {
   margin-left: 15px;
 }
 
