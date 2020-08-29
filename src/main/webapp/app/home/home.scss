@@ -1,15 +1,15 @@
 .big-container {
   overflow-y: auto;
   flex-wrap: wrap;
-  height: 70vh;
+  height: 83vh;
 }
 
 .card {
   margin: 1vw;
-  height: 20vw;
-  max-height: 20vw;
+  height: 30vw;
+  max-height: 600px;
   width: 20vw;
-  max-width: 20vw;
+  max-width: 400px;
 }
 
 .card-body {
