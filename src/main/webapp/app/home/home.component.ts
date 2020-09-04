@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   isInputCardShowed = false;
   isSaving = false;
   userIsConnected = false;
+  noProject = true;
 
   editForm = this.fb.group({
     name: [null, [Validators.required]],
@@ -45,7 +46,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   loadAll(): void {
     if (this.account) {
       this.userIsConnected = true;
-      this.kanbanTableService.queryByUserIsCurrentUser().subscribe(data => (this.tables = data.body));
+      this.kanbanTableService.queryByUserIsCurrentUser().subscribe(data => {
+        this.tables = data.body;
+        this.noProject = this.tables?.length === 0;
+      });
     }
   }
 
