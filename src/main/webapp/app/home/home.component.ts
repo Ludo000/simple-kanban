@@ -9,6 +9,7 @@ import { KanbanTableService } from 'app/entities/kanban-table/kanban-table.servi
 import { FormBuilder, Validators } from '@angular/forms';
 import { HttpResponse } from '@angular/common/http';
 import * as moment from 'moment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'jhi-home',
@@ -33,7 +34,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     private accountService: AccountService,
     private loginModalService: LoginModalService,
     private kanbanTableService: KanbanTableService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -117,5 +119,9 @@ export class HomeComponent implements OnInit, OnDestroy {
     if (kanbanTable && kanbanTable.id) {
       this.subscribeToSaveResponse(this.kanbanTableService.delete(kanbanTable.id));
     }
+  }
+
+  onKanbanTableClick(kanbanTable: KanbanTable): void {
+    this.router.navigate(['/kanban-table', kanbanTable.id, 'view']);
   }
 }

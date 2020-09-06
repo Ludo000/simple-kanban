@@ -36,15 +36,27 @@
 
 textarea {
   display: unset;
+  height: 100%;
 }
 
 .big-container-header {
   width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  justify-items: center;
 }
 
-.btn-new-project {
+.form-container {
+  height: 100%;
+}
+
+.label-name,
+.label-desc {
+  overflow: auto;
+}
+
+.label-name {
+  width: 80%;
 }

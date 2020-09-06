@@ -1,5 +1,8 @@
 <div class="d-flex justify-content-center big-container">
     <div class="big-container-header">
+        <div *ngIf="noProject">
+            Start by creating a new project.
+        </div>
         <button type="button" class="d-flex justify-content-center align-items-center btn btn-primary btn-new-project"
             (click)="clickOnCreateBtn()">
             <div class="card-body d-flex justify-
@@ -9,38 +12,31 @@
                 <div class="fa-label">Create a new project</div>
             </div>
         </button>
-        <ng-container *ngIf="noProject">
-            Start by creating a new project.
-        </ng-container>
     </div>
     <ng-container *ngIf="userIsConnected">
-        <div class="card" *ngFor="let table of tables">
+        <div class="card" *ngFor="let table of tables" (click)="onKanbanTableClick(table)">
             <div class="card-header d-flex justify-content-between align-items-center">
-                {{ table?.name }}
+                <span class="label-name">{{ table?.name }}</span>
                 <button type="button" class="btn btn-danger" (click)="delete(table)">
                     <fa-icon icon="times"></fa-icon>
                 </button>
             </div>
             <div class="card-body d-flex justify-content-center align-items-center">
-                {{ table?.description }}
+                <span class="label-desc">{{ table?.description }}</span>
             </div>
         </div>
         <ng-container>
             <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
                 <div class="card" *ngIf="isInputCardShowed">
-                    <div class="card-header d-flex justify-content-center align-items-center">
-                        <div>
-                            <label for="name">Name</label>
-                            <input type="text" class="form-control" id="name" name="name" formControlName="name"
-                                placeholder="Enter a name" />
-                        </div>
+                    <div class="card-header d-flex justify-content-center align-items-center flex-column">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" formControlName="name"
+                            placeholder="Enter a name" />
                     </div>
-                    <div class="card-body d-flex justify-content-center align-items-center">
-                        <div>
-                            <label for="title">Description</label>
-                            <textarea class="form-control" id="description" name="description"
-                                formControlName="description" placeholder="Enter a description"></textarea>
-                        </div>
+                    <div class="card-body d-flex justify-content-center align-items-center flex-column form-container">
+                        <label for="title">Description</label>
+                        <textarea class="form-control" id="description" name="description" formControlName="description"
+                            placeholder="Enter a description"></textarea>
                     </div>
                     <div class="d-flex justify-content-around btn-group">
                         <button type="button" class="btn btn-secondary" (click)="previousState()">
