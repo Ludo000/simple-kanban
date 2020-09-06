@@ -117,11 +117,12 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   delete(kanbanTable: KanbanTable): void {
     if (kanbanTable && kanbanTable.id) {
+      this.isSaving = true;
       this.subscribeToSaveResponse(this.kanbanTableService.delete(kanbanTable.id));
     }
   }
 
   onKanbanTableClick(kanbanTable: KanbanTable): void {
-    this.router.navigate(['/kanban-table', kanbanTable.id, 'view']);
+    if (!this.isSaving) this.router.navigate(['/kanban-table', kanbanTable.id, 'view']);
   }
 }
