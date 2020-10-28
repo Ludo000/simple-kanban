@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { Subscription, Observable } from 'rxjs';
 
 import { LoginModalService } from 'app/core/login/login-modal.service';
@@ -29,6 +29,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     name: [null, [Validators.required]],
     description: [null, [Validators.maxLength(255)]],
   });
+
+  @ViewChild('inputName') inputName: ElementRef | undefined;
 
   constructor(
     private accountService: AccountService,
@@ -71,6 +73,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   clickOnCreateBtn(): void {
     this.isInputCardShowed = true;
+    this.inputName?.nativeElement.focus();
   }
 
   save(): void {

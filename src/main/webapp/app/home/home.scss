@@ -1,15 +1,22 @@
 .big-container {
   overflow-y: auto;
   flex-wrap: wrap;
-  height: 83vh;
+}
+
+.card-container {
+  width: 100%;
+  padding-left: 5vw;
+  padding-right: 5vw;
 }
 
 .card {
-  margin: 1vw;
-  height: 30vw;
-  max-height: 500px;
-  width: 20vw;
-  max-width: 400px;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  // margin: 1vw;
+  // height: 30vw;
+  // max-height: 500px;
+  // width: 20vw;
+  // max-width: 400px;
 }
 
 .card:hover {
@@ -29,6 +36,18 @@
 
 .fa-label {
   margin-left: 5px;
+}
+
+.btn {
+  height: 5vh;
+  min-height: 40px;
+}
+
+.btn-close {
+  width: 5vh;
+  height: 5vh;
+  min-height: 40px;
+  min-width: 40px;
 }
 
 .btn-group {
@@ -55,6 +74,7 @@ textarea {
   justify-content: center;
   align-items: center;
   justify-items: center;
+  margin-top: 2vh;
 }
 
 .form-container,

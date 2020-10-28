@@ -101,10 +101,6 @@ Generic styles
   opacity: 1;
 }
 
-.footer {
-  border-top: 1px solid rgba(0, 0, 0, 0.125);
-}
-
 .hand,
 [jhisortby] {
   cursor: pointer;
@@ -198,5 +194,19 @@ ui bootstrap tweaks
 }
 
 .navbar {
-  height: 10vh;
+  height: 8vh;
+  min-height: 60px;
+}
+
+.jh-card {
+  padding: 0;
+}
+
+html {
+  height: 100%;
+}
+
+body,
+jhi-home {
+  background-color: rgb(249, 248, 248);
 }
